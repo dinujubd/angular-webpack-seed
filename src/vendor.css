@@ -1,0 +1,13 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~https://fonts.googleapis.com/icon?family=Material+Icons';
+
+body,
+html {
+    height: 100%;
+    position: relative
+}
+
+body {
+    margin: 0;
+    padding: 0
+}

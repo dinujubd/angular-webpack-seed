@@ -4,7 +4,7 @@ import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
@@ -13,6 +13,7 @@ import { Observable } from 'rxjs/Observable';
 import { environment } from '../environments/environment';
 import { Logger } from './core/logger.service';
 import { I18nService } from './core/i18n.service';
+
 
 const log = new Logger('App');
 
@@ -35,13 +36,7 @@ export class AppComponent implements OnInit {
     { name: 'Button Toggle', route: 'button-toggle' },
   ];
 
-
-
   ngOnInit() {
-    // Setup logger
-    if (environment.production) {
-      Logger.enableProductionMode();
-    }
 
     log.debug('init');
 

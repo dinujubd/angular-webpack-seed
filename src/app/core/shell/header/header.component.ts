@@ -1,8 +1,11 @@
-import { Component, OnInit, ViewEncapsulation, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../../authentication/authentication.service';
 import { I18nService } from '../../i18n.service';
+import { MdSidenav } from '@angular/material';
+import { SidenavService } from '../sidenav/sidenav.service';
+
 
 const changeDetectionKey = 'mdDemoChangeDetection';
 
@@ -17,18 +20,20 @@ const changeDetectionKey = 'mdDemoChangeDetection';
 })
 export class HeaderComponent implements OnInit {
 
+  @ViewChild('sidenav')
+  public sidenav: MdSidenav;
+
   dark = false;
   changeDetectionStrategy: string;
-
   navItems = [
     { name: 'Autocomplete', route: 'autocomplete' },
     { name: 'Button', route: 'button' }
   ];
 
-
   constructor(private router: Router,
     private authenticationService: AuthenticationService,
-    private i18nService: I18nService, private _element: ElementRef) {
+    private i18nService: I18nService, private _element: ElementRef,
+    private sidenavService: SidenavService) {
 
     try {
       this.changeDetectionStrategy = window.localStorage.getItem(changeDetectionKey) || 'Default';
@@ -37,7 +42,10 @@ export class HeaderComponent implements OnInit {
     }
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.sidenavService
+      .setSidenav(this.sidenav);
+  }
 
 
 
@@ -86,6 +94,12 @@ export class HeaderComponent implements OnInit {
     } catch (error) {
       console.error(error);
     }
+  }
+
+  toggleSideNav() {
+
+    debugger;
+    this.sidenavService.toggle().then(() => { });
   }
 
 }

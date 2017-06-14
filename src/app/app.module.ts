@@ -16,6 +16,7 @@ import { LoginModule } from './login/login.module';
 import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from '@angular/material';
+import { SidenavService } from './core/shell/sidenav/sidenav.service';
 
 @NgModule({
   imports: [
@@ -35,7 +36,7 @@ import { MaterialModule } from '@angular/material';
     MaterialModule
   ],
   declarations: [AppComponent],
-  providers: [],
+  providers: [SidenavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,7 +13,7 @@ import { I18nService } from './i18n.service';
 import { HttpService } from './http/http.service';
 import { HttpCacheService } from './http/http-cache.service';
 import { MaterialModule } from '@angular/material';
-
+import { SidenavService } from './shell/sidenav/sidenav.service';
 export function createHttpService(backend: ConnectionBackend,
   defaultOptions: RequestOptions,
   httpCacheService: HttpCacheService) {
@@ -45,7 +45,8 @@ export function createHttpService(backend: ConnectionBackend,
       provide: Http,
       deps: [XHRBackend, RequestOptions, HttpCacheService],
       useFactory: createHttpService
-    }
+    },
+    SidenavService
   ]
 })
 export class CoreModule {

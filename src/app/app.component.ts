@@ -11,11 +11,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs/Observable';
 
 import { environment } from '../environments/environment';
-import { Logger } from './core/logger.service';
-import { I18nService } from './core/i18n.service';
-
-
-const log = new Logger('App');
 
 @Component({
   selector: 'app-root',
@@ -27,40 +22,27 @@ export class AppComponent implements OnInit {
   constructor(private router: Router,
     private activatedRoute: ActivatedRoute,
     private titleService: Title,
-    private translateService: TranslateService,
-    private i18nService: I18nService) { }
+    private translateService: TranslateService) { }
 
-  navItems = [
-    { name: 'Autocomplete', route: 'autocomplete' },
-    { name: 'Button', route: 'button' },
-    { name: 'Button Toggle', route: 'button-toggle' },
-  ];
 
   ngOnInit() {
-
-    log.debug('init');
-
-    // Setup translations
-    this.i18nService.init(environment.defaultLanguage, environment.supportedLanguages);
-
-    // Change page title on navigation or language change, based on route data
-    const onNavigationEnd = this.router.events.filter(event => event instanceof NavigationEnd);
-    Observable.merge(this.translateService.onLangChange, onNavigationEnd)
-      .map(() => {
-        let route = this.activatedRoute;
-        while (route.firstChild) {
-          route = route.firstChild;
-        }
-        return route;
-      })
-      .filter(route => route.outlet === 'primary')
-      .mergeMap(route => route.data)
-      .subscribe(event => {
-        const title = event['title'];
-        if (title) {
-          this.titleService.setTitle(this.translateService.instant(title));
-        }
-      });
+    // const onNavigationEnd = this.router.events.filter(event => event instanceof NavigationEnd);
+    // Observable.merge(this.translateService.onLangChange, onNavigationEnd)
+    //   .map(() => {
+    //     let route = this.activatedRoute;
+    //     while (route.firstChild) {
+    //       route = route.firstChild;
+    //     }
+    //     return route;
+    //   })
+    //   .filter(route => route.outlet === 'primary')
+    //   .mergeMap(route => route.data)
+    //   .subscribe(event => {
+    //     const title = event['title'];
+    //     if (title) {
+    //       this.titleService.setTitle(this.translateService.instant(title));
+    //     }
+    //   });
   }
 
 }

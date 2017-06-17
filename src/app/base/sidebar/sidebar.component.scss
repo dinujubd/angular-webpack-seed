@@ -1,0 +1,11 @@
+md-sidenav-container{
+    height:  calc(100% - 64px);    
+    
+    md-sidenav
+    {
+        width: 200px;
+        box-shadow: 0px 0px 4px #777;
+        padding:10px;
+    }
+}
+

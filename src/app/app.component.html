@@ -1,27 +1,8 @@
-<md-sidenav-container class="demo-root" fullscreen>
-  <md-sidenav #start>
-    <md-nav-list>
-      <a *ngFor="let navItem of navItems" md-list-item (click)="start.close()" [routerLink]="[navItem.route]">
-        {{navItem.name}}
-      </a>
+<app-header>
+</app-header>
 
-      <hr>
+<app-sidebar>
+</app-sidebar>
 
-      <a md-list-item (click)="start.close()" [routerLink]="['baseline']">
-        Baseline
-      </a>
-    </md-nav-list>
-    <button md-button (click)="start.close()">CLOSE</button>
-  </md-sidenav>
-  <div flex layout="column">
-    <div flex class="md-padding" ui-view></div>
-
-    <div class="md-whiteframe-z1" ng-include="'templates/footer.html'" layout="row" layout-align="space-between end">
-      <router-outlet> </router-outlet>
-    </div>
-  </div>
-</md-sidenav-container>
-
-
-
-<!--  Content  -->
+<app-footer>
+</app-footer>

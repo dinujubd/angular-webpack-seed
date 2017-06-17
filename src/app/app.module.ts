@@ -8,15 +8,12 @@ import { TranslateModule } from '@ngx-translate/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { CoreModule } from './core/core.module';
-import { SharedModule } from './shared/shared.module';
-import { HomeModule } from './home/home.module';
-import { AboutModule } from './about/about.module';
-import { LoginModule } from './login/login.module';
 import { NoopAnimationsModule, BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from '@angular/material';
-import { SidenavService } from './core/shell/sidenav/sidenav.service';
+
+import { BaseModule } from './base/base.module';
+
 
 @NgModule({
   imports: [
@@ -25,18 +22,14 @@ import { SidenavService } from './core/shell/sidenav/sidenav.service';
     HttpModule,
     TranslateModule.forRoot(),
     NgbModule.forRoot(),
-    CoreModule,
-    SharedModule,
-    HomeModule,
-    AboutModule,
-    LoginModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    BaseModule
   ],
   declarations: [AppComponent],
-  providers: [SidenavService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

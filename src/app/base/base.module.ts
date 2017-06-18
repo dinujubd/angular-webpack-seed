@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MaterialModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -9,7 +10,8 @@ import { SidebarService } from './sidebar/sidebar.service';
 
 @NgModule({
     imports: [
-        MaterialModule
+        MaterialModule,
+        FlexLayoutModule
     ],
     declarations: [HeaderComponent, FooterComponent, SidebarComponent],
     providers: [SidebarService],

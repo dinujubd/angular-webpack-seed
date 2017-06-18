@@ -1,4 +1,8 @@
 <md-toolbar color="primary">
-    <md-icon (click)='toggleSidenav() '>menu</md-icon>
+    <!--<md-icon (click)='toggleSidenav() '>menu</md-icon>-->
+
+    <button class="hamburger mat-button" md-button (click)="toggleSidenav()">
+        <md-icon>menu</md-icon>
+      </button>
     <span>Default Toolbar</span>
 </md-toolbar>
